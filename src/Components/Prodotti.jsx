@@ -3,6 +3,17 @@ import { useState, useEffect } from "react"
 export default function Prodotti() {
     const [prodotti, setProdotti] = useState([])
 
+    useEffect(() => {
+        fetch("https://fakestoreapi.com/products")
+            // downloads products from server
+            .then((resp) => resp.json())
+            // makes the data readble to JS
+            .then((data) => {
+                setProdotti(data)
+                // saves data in state so that react can show them
+            })
+    }, [])
+
     return (
         <div>
             <h1>Prodotti</h1>
