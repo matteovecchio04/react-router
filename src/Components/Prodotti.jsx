@@ -17,9 +17,9 @@ export default function Prodotti() {
     return (
         <div>
             <h1>Prodotti</h1>
-            <div className="row g-3">
+            <div className="row">
                 {prodotti.map((prodotto) => (
-                    <div key={prodotto.id}>
+                    <div key={prodotto.id} className="col-12 col-lg-3 col-md-6 col-sm-4">
                         <div className="card">
                             <img className="card-top" src={prodotto.image} alt="..." />
                             <div className="card-body">
