@@ -1,6 +1,19 @@
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { BudgetContext } from "./BudgetContext";
 
 export default function Navbar() {
+
+    const { budgetMode, setBudgetMode } = useContext(BudgetContext)
+
+    let buttonText = "";
+
+    if (budgetMode === true) {
+        buttonText = "Disattiva Modalità Budget";
+    } else {
+        buttonText = "Attiva Modalità Budget";
+    }
+
     return (
         <div className="p-3 d-flex justify-content-between">
             <ul className="nav">
@@ -18,6 +31,14 @@ export default function Navbar() {
                 </li>
                 <li className="nav-item">
                     <Link className="nav-link active" to="/prodotti">Prodotti</Link>
+                </li>
+
+                <li className="nav-item">
+                    <button
+                        className="btn btn-warning"
+                        onClick={() => setBudgetMode(!budgetMode)}>
+                        {buttonText}
+                    </button>
                 </li>
             </ul>
 
