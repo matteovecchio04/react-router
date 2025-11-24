@@ -1,7 +1,10 @@
-import { useState, useEffect } from "react"
+import { useState, useEffect, useContext } from "react"
+import { BudgetContext } from "./BudgetContext"
 
 export default function Prodotti() {
     const [prodotti, setProdotti] = useState([])
+
+    const { budgetMode } = useContext(BudgetContext)
 
     useEffect(() => {
         fetch("https://fakestoreapi.com/products")
@@ -13,6 +16,14 @@ export default function Prodotti() {
                 // saves data in state so that react can show them
             })
     }, [])
+
+    let showProducts = []
+    if (budgetMode === true) {
+        showProducts = prodotti.filter((prodotto) => prodotto.price <= 30)
+    }
+    else {
+        showProducts = prodotti
+    }
 
     return (
         <div>
