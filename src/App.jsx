@@ -3,7 +3,7 @@ import Navbar from "./Components/Navbar"
 import Home from "./Components/Home"
 import ChiSiamo from "./Components/ChiSiamo"
 import Prodotti from "./Components/Prodotti"
-import BudgetProvider from "./Components/BudgetContext"
+import { BudgetProvider } from "./Components/BudgetContext"
 
 export default function App() {
 
