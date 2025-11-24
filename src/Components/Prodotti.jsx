@@ -29,7 +29,7 @@ export default function Prodotti() {
         <div>
             <h1>Prodotti</h1>
             <div className="row">
-                {prodotti.map((prodotto) => (
+                {showProducts.map((prodotto) => (
                     <div key={prodotto.id} className="col-12 col-lg-3 col-md-6 col-sm-4">
                         <div className="card">
                             <img className="card-top" src={prodotto.image} alt="..." />
